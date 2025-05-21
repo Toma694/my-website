@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Журналістська етика</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fff;
+      color: #333;
+    }
+    header {
+      background-color: #c62828;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #f44336;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 20px;
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    .register-btn {
+      background-color: white;
+      color: #c62828;
+      border: 2px solid #c62828;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .register-btn:hover {
+      background-color: #c62828;
+      color: white;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    form button {
+      background-color: #c62828;
+      color: white;
+      padding: 10px;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Журналістська етика</h1>
+  </header>
+
+  <nav>
+    <a href="#" onclick="showSection('news')">Всі новини</a>
+    <a href="#" onclick="showSection('materials')">Журналістські матеріали</a>
+    <a href="#" onclick="showSection('documents')">Законодавчі документи</a>
+    <a href="#" onclick="showSection('register')" class="register-btn">Реєстрація</a>
+  </nav>
+
+  <section id="news" class="active">
+    <h2>Всі новини</h2>
+    <p>Тут з'являтимуться всі новини.</p>
+  </section>
+
+  <section id="materials">
+    <h2>Журналістські матеріали</h2>
+    <p>Тут будуть публікуватися журналістські статті та розслідування.</p>
+  </section>
+
+  <section id="documents">
+    <h2>Законодавчі документи</h2>
+    <p>Список законів та регламентів, що стосуються журналістики.</p>
+  </section>
+
+  <section id="register">
+    <h2>Реєстрація</h2>
+    <form>
+      <input type="text" placeholder="Ім'я" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Пароль" required />
+      <button type="submit">Зареєструватися</button>
+    </form>
+  </section>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+</html>
