@@ -1,118 +1,132 @@
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Журналістська етика</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background-color: #fff;
-      color: #333;
+      font-family: Arial, sans-serif;
+      background: white;
+      color: #222;
     }
     header {
-      background-color: #c62828;
+      background: red;
       color: white;
-      padding: 20px;
-      text-align: center;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
     }
     nav {
-      background-color: #f44336;
+      background: #f9f9f9;
+      padding: 10px 20px;
       display: flex;
-      justify-content: center;
       gap: 20px;
-      padding: 10px;
-      flex-wrap: wrap;
+      border-bottom: 2px solid red;
     }
     nav a {
-      color: white;
+      color: red;
       text-decoration: none;
       font-weight: bold;
     }
     nav a:hover {
       text-decoration: underline;
     }
-    section {
+    main {
       padding: 20px;
-      display: none;
     }
-    section.active {
-      display: block;
+    .article {
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
     }
+    .article h2 {
+      margin: 0 0 5px;
+      color: red;
+    }
+    .article .author {
+      font-style: italic;
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    /* Кнопка реєстрації внизу справа */
     .register-btn {
-      background-color: white;
-      color: #c62828;
-      border: 2px solid #c62828;
-      padding: 8px 16px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: red;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      font-size: 16px;
       border-radius: 5px;
       cursor: pointer;
-      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
     }
     .register-btn:hover {
-      background-color: #c62828;
-      color: white;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-    }
-    form button {
-      background-color: #c62828;
-      color: white;
-      padding: 10px;
-      border: none;
-      margin-top: 10px;
-      cursor: pointer;
+      background: darkred;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Журналістська етика</h1>
-  </header>
 
-  <nav>
-    <a href="#" onclick="showSection('news')">Всі новини</a>
-    <a href="#" onclick="showSection('materials')">Журналістські матеріали</a>
-    <a href="#" onclick="showSection('documents')">Законодавчі документи</a>
-    <a href="#" onclick="showSection('register')" class="register-btn">Реєстрація</a>
-  </nav>
+<header>
+  <h1>Журналістська етика</h1>
+</header>
 
-  <section id="news" class="active">
+<nav>
+  <a href="#all-news">Всі новини</a>
+  <a href="#journalistic-materials">Журналістські матеріали</a>
+  <a href="#legal-documents">Законодавчі документи</a>
+  <a href="#author-materials">Авторські матеріали</a>
+</nav>
+
+<main>
+  <section id="all-news">
     <h2>Всі новини</h2>
-    <p>Тут з'являтимуться всі новини.</p>
+    <article class="article">
+      <h3>Новина 1</h3>
+      <div class="author">Автор: Іван Іваненко</div>
+      <p>Це приклад тексту новини, яку можна замінити.</p>
+    </article>
   </section>
 
-  <section id="materials">
+  <section id="journalistic-materials">
     <h2>Журналістські матеріали</h2>
-    <p>Тут будуть публікуватися журналістські статті та розслідування.</p>
+    <article class="article">
+      <h3>Матеріал 1</h3>
+      <div class="author">Автор: Марія Петренко</div>
+      <p>Тут можна розміщувати журналістські матеріали.</p>
+    </article>
   </section>
 
-  <section id="documents">
+  <section id="legal-documents">
     <h2>Законодавчі документи</h2>
-    <p>Список законів та регламентів, що стосуються журналістики.</p>
+    <article class="article">
+      <h3>Документ 1</h3>
+      <div class="author">Автор: Олег Сидоренко</div>
+      <p>Текст законодавчого документу.</p>
+    </article>
   </section>
 
-  <section id="register">
-    <h2>Реєстрація</h2>
-    <form>
-      <input type="text" placeholder="Ім'я" required />
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Пароль" required />
-      <button type="submit">Зареєструватися</button>
-    </form>
+  <section id="author-materials">
+    <h2>Авторські матеріали</h2>
+    <article class="article">
+      <h3>Авторський матеріал 1</h3>
+      <div class="author">Автор: Наталія Коваленко</div>
+      <p>Унікальні авторські тексти.</p>
+    </article>
   </section>
+</main>
 
-  <script>
-    function showSection(id) {
-      document.querySelectorAll('section').forEach(sec => {
-        sec.classList.remove('active');
-      });
-      document.getElementById(id).classList.add('active');
-    }
-  </script>
+<button class="register-btn" onclick="alert('Форма реєстрації поки не реалізована')">Реєстрація</button>
+
 </body>
 </html>
+Обновляю index.html на базовый шаблон
